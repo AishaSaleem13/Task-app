@@ -2,6 +2,7 @@
 import React from 'react'
 import Stack from './Stack'
 import TextType from './TextType'
+import Link from 'next/link';
 
 function Hero() {
   const images = [
@@ -30,12 +31,17 @@ function Hero() {
           </ul>
 
           <div className='hidden md:flex gap-3 md:gap-4'>
+            <Link href="/Login">
             <button className='rounded-lg md:rounded-xl px-4 md:px-6 py-2 bg-[#FFCBA4] hover:bg-[#FFD5A4] transition-colors text-[#2D2D2D]'>
               Login
             </button>
-            <button className='rounded-lg md:rounded-xl px-4 md:px-6 py-2 bg-[#FFCBA4] hover:bg-[#FFD5A4] transition-colors text-[#2D2D2D]'>
+            </Link>
+            <Link href={"/Signup"}>
+             <button className='rounded-lg md:rounded-xl px-4 md:px-6 py-2 bg-[#FFCBA4] hover:bg-[#FFD5A4] transition-colors text-[#2D2D2D]'>
               Signup
             </button>
+            </Link>
+           
           </div>
         </div>
 
