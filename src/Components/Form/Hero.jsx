@@ -16,12 +16,14 @@ function HeroF() {
   const taskToEdit = useSelector((state) => state.updateTask);
   const [title, setTitle] = useState("");
   const [tasks, setTasks] = useState("");
-
+const [category,setCategory]=useState("personal")
 
   useEffect(() => {
     if (taskToEdit) {
       setTitle(taskToEdit.title || "");
       setTasks(taskToEdit.tasks || "");
+          setDate(taskToEdit.date || "");
+          setCategory(taskToEdit.category || "personal");
     }
   }, [taskToEdit]);
 
@@ -34,14 +36,14 @@ function HeroF() {
 
     try {
       if (taskToEdit) {
-        await getupdate(taskToEdit._id, { title, tasks,date });
+        await getupdate(taskToEdit._id, { title, tasks,date,category });
         dispatch(clearupdate());
         alert("Task updated successfully!");
       } else {
-        await postapi({ title, tasks,date });
+        await postapi({ title, tasks,date,category });
         alert("Task added successfully!");
       }
-
+console.log(postapi)
       router.push("/mainpage");
     } catch (error) {
       alert("An error occurred. Please try again later.");
@@ -49,10 +51,9 @@ function HeroF() {
   };
 
   return (
-    <div className="hero bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen flex flex-col md:flex-row items-center justify-center p-8 gap-12">
-      
-      {/* Form Card */}
-      <div className="card bg-white w-full md:w-2/5 shadow-2xl p-8 rounded-2xl border border-gray-200">
+    <div className="hero bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen flex flex-col md:flex-row items-center justify-center p-8 gap-12">
+      {/* form */}
+      <div className="card bg-white w-full md:w-96 shadow-2xl p-8 rounded-2xl flex-[2] border border-gray-200">
         <h2 className="text-3xl font-bold mb-8 text-center text-blue-700">
           {taskToEdit ? "Update Task 📝" : "Add Task 📝"}
         </h2>
@@ -70,14 +71,14 @@ function HeroF() {
             />
           </div>
           <div>
-            <label className="label block mb-2 text-lg font-medium text-gray-700">
+            <label className="label block mb-2 text-lg  font-medium text-gray-700">
               Task
             </label>
             <textarea
               placeholder="Enter description"
               value={tasks}
               onChange={(e) => setTasks(e.target.value)}
-              className="textarea textarea-bordered w-full h-36 text-lg px-4 py-3 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="textarea textarea-bordered w-full h-36 text-lg px-4 py-3 rounded-lg border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
           <div>
@@ -92,6 +93,18 @@ function HeroF() {
     required
   />
 </div>
+    <div>
+  <label className="label block  text-lg font-medium text-gray-700">
+   category
+  </label>
+  <input
+    type="category"
+    value={category}
+    onChange={(e) => setCategory(e.target.value)}
+    className="input input-bordered w-full text-lg px-4 py-3 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+    required
+  />
+</div>
 
           <button
             type="submit"
@@ -101,7 +114,7 @@ function HeroF() {
           </button>
         </form>
       </div>
-      <div className="flex flex-col items-center md:ml-16">
+      <div className="flex flex-col items-center md:ml-16 flex-1">
         {/* panda pic  */}
         <div className="w-72 md:w-96">
           <PandaKeyboard />

@@ -24,7 +24,7 @@ function Hero() {
           </div>
 
           <ul className='hidden md:flex flex-1 justify-center gap-6 text-[#F5F5F5] text-sm md:text-base font-mono'>
-            <li className='cursor-pointer hover:text-[#FFCBA4] transition-colors'>Teams</li>
+           <Link href={"/mainpage"}> <li className='cursor-pointer hover:text-[#FFCBA4] transition-colors'>Home</li></Link>
             <li className='cursor-pointer hover:text-[#FFCBA4] transition-colors'>Sales</li>
             <li className='cursor-pointer hover:text-[#FFCBA4] transition-colors'>Prices</li>
             <li className='cursor-pointer hover:text-[#FFCBA4] transition-colors'>Contact</li>
@@ -45,7 +45,7 @@ function Hero() {
           </div>
         </div>
 
-        {/* Hero Section */}
+{/* gero */}
         <div className='flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-20 mt-10 md:mt-20 gap-10 md:gap-16'>
 
           <div className='flex flex-col flex-1 items-start justify-center text-left max-w-lg'>
@@ -77,9 +77,11 @@ function Hero() {
               Boost your productivity on the go with Taskim.
             </h3>
 
+<Link href={"/Signup"}>
             <button className='mt-6 rounded-lg md:rounded-xl px-5 md:px-6 py-2 bg-[#FFCBA4] hover:bg-[#FFD5A4] transition-colors text-[#2D2D2D] font-medium'>
               Get Started
             </button>
+</Link>
           </div>
 
           <div className='flex flex-1 justify-center items-center'>

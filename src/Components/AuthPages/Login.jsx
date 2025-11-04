@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import styles from "./Panda.module.css";
+import styles from "./login.module.css";
 import { LOGINapi } from "@/Config/api";
 import { useRouter } from "next/navigation";
 
@@ -64,7 +64,7 @@ export default function PandaLoginn() {
   alert("User logged in successfully");
   setTimeout(() => {
     router.push("/");
-  }, 200); // small delay lets Next.js complete routing smoothly
+  }, 200); 
 }
  else {
       alert(response.message || "Invalid credentials");

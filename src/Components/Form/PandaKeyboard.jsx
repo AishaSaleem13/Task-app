@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./Pands.module.css"
+import "./Panda.module.css"
 
 function PandaKeyboard() {
   const containerRef = useRef(null);

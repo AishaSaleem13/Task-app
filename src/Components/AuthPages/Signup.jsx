@@ -3,11 +3,15 @@
 import { registerapi } from "@/Config/api";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 import styles from "./Signup.module.css";
 import Link from "next/link";
+import { setReduxUsername } from "@/Store/PushSlice";
+
 
 export default function PandaSignup() {
   const router = useRouter()
+  const dispatch =useDispatch()
   const leftEye = useRef();
   const rightEye = useRef();
   const leftBall = useRef();
@@ -54,6 +58,7 @@ const [Password,setPassword]=useState("")
       alert(error)
     }
     if (res.message==="User registered successfully!") {
+      dispatch(setReduxUsername(Username))
       alert("user created successfully ")
       router.push("/")
     }
@@ -65,6 +70,8 @@ const [Password,setPassword]=useState("")
     setTimeout(() => setWrong(false), 2000);
 await getdata()
   };
+
+
 
   return (
     <div className={styles["panda-container"]}>
@@ -132,4 +139,5 @@ await getdata()
       </form>
     </div>
   );
+
 }
