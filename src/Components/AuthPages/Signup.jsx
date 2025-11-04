@@ -60,7 +60,7 @@ const [Password,setPassword]=useState("")
     if (res.message==="User registered successfully!") {
       dispatch(setReduxUsername(Username))
       alert("user created successfully ")
-      router.push("/")
+      router.push("/mainpage")
     }
 
    }

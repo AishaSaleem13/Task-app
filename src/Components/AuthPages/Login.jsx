@@ -63,7 +63,7 @@ export default function PandaLoginn() {
     if (response.message === "User logged in successfully!") {
   alert("User logged in successfully");
   setTimeout(() => {
-    router.push("/");
+    router.push("/mainpage");
   }, 200); 
 }
  else {
